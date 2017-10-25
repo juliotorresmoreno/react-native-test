@@ -1,21 +1,54 @@
 import React, { Component } from 'react';
-import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
-export default class AnatomyExample extends Component {
-	render() {
-		return (
-			<Container>
-                        <Header>
-          <Body>
-            <Title>Header</Title>
-          </Body>
-          <Right />
-        </Header>
-				<Content>
-					<Text>
-						Login
-					</Text>
-				</Content>
-			</Container>
-		);
-	}
+import {
+    Container,
+    Content,
+    Button,
+    Text,
+    Form,
+    Item,
+    Input,
+    View
+} from 'native-base';
+import { StyleSheet } from 'react-native';
+import { Link } from 'react-router-native';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+
+const styles = StyleSheet.create({
+    content: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#F5FCFF',
+        padding: 20,
+        height: '100%'
+    }
+});
+
+export default class Login extends Component {
+    handleRegister = () => this.props.history.push('/register');
+    render() {
+        const {props} = this;
+        return (
+            <Container>
+                <Header />
+                <View style={styles.content}>
+                    <Content>
+                        <Form>
+                            <Item>
+                                <Input placeholder="Usuario" />
+                            </Item>
+                            <Item last>
+                                <Input placeholder="Contraseña" />
+                            </Item>
+                        </Form>
+                        <Button style={{ width: '100%' }}>
+                            <Text style={{ textAlign: 'center', width: '100%' }}>Entrar</Text>
+                        </Button>
+                    </Content>
+                </View>
+                <Footer {...props} />
+            </Container>
+        );
+    }
 }

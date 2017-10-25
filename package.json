@@ -11,7 +11,8 @@
 		"react": "16.0.0-beta.5",
 		"react-native": "0.49.3",
 		"react-native-redux-router": "^1.0.7",
-		"react-navigation": "^1.0.0-beta.15"
+		"react-navigation": "^1.0.0-beta.15",
+		"react-router-native": "^4.2.0"
 	},
 	"devDependencies": {
 		"babel-jest": "21.2.0",

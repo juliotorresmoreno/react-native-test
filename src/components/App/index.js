@@ -1,24 +1,19 @@
-import React, { Component } from 'react';
-import { DrawerNavigator } from 'react-navigation';
-import { Button } from 'native-base';
-import SideBar from '../SideBar';
+import React from 'react'
+//import { View, Text } from 'react-native'
+import { NativeRouter, Route, Link } from 'react-router-native';
+import { Container } from 'native-base';
+import { StyleSheet } from 'react-native';
 import Login from '../../pages/Login';
-import Register from '../../pages/Register';
+import Register from '../../pages/Register';  
 
-export default DrawerNavigator(
-    {
-        Login: {
-            screen: Login,
-        },
-        Register: {
-            screen: Register,
-        },
-        navigationOptions: {
-            screen: () => <Button title='test' />
-        }
-    },
-    {
-        contentComponent: props => <SideBar {...props} />
-    }
+const App = () => (
+    <NativeRouter>
+        <Container>
+            <Route exact path="/" component={Login} />
+            <Route path="/login" component={Login} />
+            <Route path="/register" component={Register} />
+        </Container>
+    </NativeRouter>
 );
-	
+
+export default App;
